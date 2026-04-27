@@ -3,8 +3,9 @@
 # Database: PostgreSQL
 #
 # Quick Start:
-#   1. docker-compose up -d
-#   2. Access at https://ownapi.dev
+#   1. Ensure .env file exists in this directory
+#   2. docker-compose up -d
+#   3. Access at https://ownapi.dev
 #
 
 version: '3.4'
@@ -21,16 +22,16 @@ services:
       - ./data:/data
       - ./logs:/app/logs
     environment:
-      - SQL_DSN=postgresql://root:7Ca0eeypsemSIFKYchpK@postgres:5432/new-api
-      - REDIS_CONN_STRING=redis://:tzTLoNHo3NGmstWtu4b5@redis:6379
+      - SQL_DSN=${SQL_DSN}
+      - REDIS_CONN_STRING=${REDIS_CONN_STRING}
       - TZ=Asia/Tokyo
       - ERROR_LOG_ENABLED=true
       - BATCH_UPDATE_ENABLED=true
       - NODE_NAME=new-api-node-1
-      - STREAMING_TIMEOUT=300
-      - SESSION_SECRET=kGxUifAI+7vOoN8tWoMtqlsA0W65+HpoP8WRqGeaX3D4Mh4Sy3IbkN3wRPo6VKh+
-      - CRYPTO_SECRET=a3I3CISuljRzuu+kcklYd1uCfpg7rl29IAW+FzBJYC0=
-      - FRONTEND_BASE_URL=https://ownapi.dev
+      - STREAMING_TIMEOUT=${STREAMING_TIMEOUT}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - CRYPTO_SECRET=${CRYPTO_SECRET}
+      - FRONTEND_BASE_URL=${FRONTEND_BASE_URL}
       # Optional analytics (uncomment and fill when ready)
       # - GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
       # - UMAMI_WEBSITE_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -51,7 +52,7 @@ services:
     image: redis:latest
     container_name: redis
     restart: always
-    command: ["redis-server", "--requirepass", "tzTLoNHo3NGmstWtu4b5"]
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}"]
     networks:
       - new-api-network
 
@@ -61,7 +62,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: 7Ca0eeypsemSIFKYchpK
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: new-api
     volumes:
       - pg_data:/var/lib/postgresql/data
