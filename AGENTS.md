@@ -134,3 +134,13 @@ For request structs that are parsed from client JSON and then re-marshaled to up
 ### Rule 7: Billing Expression System — Read `pkg/billingexpr/expr.md`
 
 When working on tiered/dynamic billing (expression-based pricing), you MUST read `pkg/billingexpr/expr.md` first. It documents the design philosophy, expression language (variables, functions, examples), full system architecture (editor → storage → pre-consume → settlement → log display), token normalization rules (`p`/`c` auto-exclusion), quota conversion, and expression versioning. All code changes to the billing expression system must follow the patterns described in that document.
+
+## Cursor Cloud specific instructions
+
+- Go 1.25.1 matches `go.mod`. Frontend tooling is Bun. Login shells skip `~/.bashrc`, so `bun` must be on the default PATH (`/usr/local/bin/bun`), not only `~/.bun/bin`.
+- `//go:embed web/dist` in `main.go` requires `web/dist/index.html` before `go build` or `go run`. Build it from `web/` with `DISABLE_ESLINT_PLUGIN=true VITE_REACT_APP_VERSION=$(cat ../VERSION) bun --bun run build`. `bun --bun` matters: plain `bun run build` executes Vite on Node and aborts at Node's default heap limit on this image.
+- Dev processes: API `go run .` on port 3000, Vite `bun run dev` in `web/` on port 5173. Vite proxies `/api`, `/mj`, and `/pg` to `http://localhost:3000`.
+- Leave `SQL_DSN` unset to use SQLite (`SQLITE_PATH`, default `one-api.db` in the working directory). Redis is optional; startup continues when `REDIS_CONN_STRING` is empty.
+- Do not set `SESSION_SECRET=random_string`. The process exits on that placeholder.
+- A fresh database has no root user. `POST /api/setup` creates one. Later session routes need the session cookie and a `New-Api-User` header equal to that user's id.
+- `go test ./common/ ./dto/ ./pkg/billingexpr/ ./setting/operation_setting/` is a useful smoke set. `go test ./relay/helper/` currently fails in `TestStreamScannerHandler_StreamStatus_PreInitialized` (expected stream status 1, got 0). That failure is in the product tests, not the toolchain.
