@@ -32,6 +32,20 @@ services:
       - SESSION_SECRET=${SESSION_SECRET}
       - CRYPTO_SECRET=${CRYPTO_SECRET}
       - FRONTEND_BASE_URL=${FRONTEND_BASE_URL}
+#      - LOG_SQL_DSN=postgresql://root:123456@postgres:5432/new-api-log
+#      - LOG_SQL_DSN=clickhouse://default:123456@clickhouse:9000/new_api_logs
+#      - LOG_SQL_CLICKHOUSE_TTL_DAYS=0
+#      - DEFAULT_LANGUAGE=zh-CN
+#      - RELAY_IDLE_CONN_TIMEOUT=90
+#      - SESSION_COOKIE_SECURE=true
+#      - SESSION_COOKIE_TRUSTED_URL=https://example.com,https://admin.example.com
+#      - TRUSTED_PROXIES=172.20.0.0/16
+#      - USER_SESSION_ACTIVE_LIMIT=50
+#      - USER_SESSION_ISSUANCE_LIMIT=100
+#      - USER_SESSION_ISSUANCE_WINDOW_SECONDS=86400
+#      - USER_SESSION_REVOKED_RETENTION_DAYS=7
+#      - USER_SESSION_HOURLY_ALERT_THRESHOLD=5000
+#      - SYNC_FREQUENCY=60
       # Optional analytics (uncomment and fill when ready)
       # - GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
       # - UMAMI_WEBSITE_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -40,6 +54,8 @@ services:
     depends_on:
       - redis
       - postgres
+#      - mysql  # Uncomment if using MySQL
+#      - clickhouse  # Uncomment if using ClickHouse for LOG_SQL_DSN
     networks:
       - new-api-network
     healthcheck:
@@ -69,8 +85,27 @@ services:
     networks:
       - new-api-network
 
+#  clickhouse:
+#    image: clickhouse/clickhouse-server:24.8
+#    container_name: clickhouse
+#    restart: always
+#    environment:
+#      CLICKHOUSE_DB: new_api_logs
+#      CLICKHOUSE_USER: default
+#      CLICKHOUSE_PASSWORD: 123456  # ⚠️ IMPORTANT: Change this password in production!
+#      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+#    volumes:
+#      - clickhouse_data:/var/lib/clickhouse
+#    networks:
+#      - new-api-network
+#    ports:
+#      - "8123:8123"  # HTTP interface, uncomment if you need external access
+#      - "9000:9000"  # Native interface used by the LOG_SQL_DSN example above
+
 volumes:
   pg_data:
+#  mysql_data:
+#  clickhouse_data:
 
 networks:
   new-api-network:
