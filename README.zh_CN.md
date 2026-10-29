@@ -1,10 +1,12 @@
 <div align="center">
 
-![new-api](/web/public/logo.png)
+![Ownapi](/web/public/logo.png)
 
-# New API
+# Ownapi
 
-🍥 **新一代大模型网关与AI资产管理系统**
+🍥 **大模型网关与 AI 资产管理** — 基于 [New API](https://github.com/QuantumNous/new-api) 的产品化分支
+
+官网：**[https://ownapi.dev](https://ownapi.dev)**
 
 <p align="center">
   简体中文 |
@@ -58,6 +60,8 @@
 > - 本项目仅供个人学习使用，不保证稳定性，且不提供任何技术支持
 > - 使用者必须在遵循 OpenAI 的 [使用条款](https://openai.com/policies/terms-of-use) 以及**法律法规**的情况下使用，不得用于非法用途
 > - 根据 [《生成式人工智能服务管理暂行办法》](http://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm) 的要求，请勿对中国地区公众提供一切未经备案的生成式人工智能服务
+
+本仓库在 [QuantumNous/new-api](https://github.com/QuantumNous/new-api) 基础上品牌化，保留 AGPL 与上游版权声明。合并上游时请注意保留 Ownapi 默认品牌（`SystemName`、文档链接、前端 fallback 等）。
 
 ---
 
@@ -151,7 +155,7 @@ docker run --name new-api -d --restart always \
 
 🎉 部署完成后，访问 `http://localhost:3000` 即可使用！
 
-📖 更多部署方式请参考 [部署指南](https://docs.newapi.pro/zh/docs/installation)
+📖 更多部署方式请参考 [部署指南](https://ownapi.dev)
 
 ---
 
@@ -159,7 +163,7 @@ docker run --name new-api -d --restart always \
 
 <div align="center">
 
-### 📖 [官方文档](https://docs.newapi.pro/zh/docs) | [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/QuantumNous/new-api)
+### 📖 [官方文档](https://ownapi.dev) | [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/QuantumNous/new-api)
 
 </div>
 
@@ -167,17 +171,17 @@ docker run --name new-api -d --restart always \
 
 | 分类 | 链接 |
 |------|------|
-| 🚀 部署指南 | [安装文档](https://docs.newapi.pro/zh/docs/installation) |
-| ⚙️ 环境配置 | [环境变量](https://docs.newapi.pro/zh/docs/installation/config-maintenance/environment-variables) |
-| 📡 接口文档 | [API 文档](https://docs.newapi.pro/zh/docs/api) |
-| ❓ 常见问题 | [FAQ](https://docs.newapi.pro/zh/docs/support/faq) |
-| 💬 社区交流 | [交流渠道](https://docs.newapi.pro/zh/docs/support/community-interaction) |
+| 🚀 部署指南 | [安装文档](https://ownapi.dev) |
+| ⚙️ 环境配置 | [环境变量](https://ownapi.dev) |
+| 📡 接口文档 | [API 文档](https://ownapi.dev) |
+| ❓ 常见问题 | [FAQ](https://ownapi.dev) |
+| 💬 社区交流 | [交流渠道](https://ownapi.dev) |
 
 ---
 
 ## ✨ 主要特性
 
-> 详细特性请参考 [特性说明](https://docs.newapi.pro/zh/docs/guide/wiki/basic-concepts/features-introduction)
+> 详细特性请参考 [特性说明](https://ownapi.dev)
 
 ### 🎨 核心功能
 
@@ -207,11 +211,11 @@ docker run --name new-api -d --restart always \
 ### 🚀 高级功能
 
 **API 格式支持：**
-- ⚡ [OpenAI Responses](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/create-response)
-- ⚡ [OpenAI Realtime API](https://docs.newapi.pro/zh/docs/api/ai-model/realtime/create-realtime-session)（含 Azure）
-- ⚡ [Claude Messages](https://docs.newapi.pro/zh/docs/api/ai-model/chat/create-message)
+- ⚡ [OpenAI Responses](https://ownapi.dev)
+- ⚡ [OpenAI Realtime API](https://ownapi.dev)（含 Azure）
+- ⚡ [Claude Messages](https://ownapi.dev)
 - ⚡ [Google Gemini](https://doc.newapi.pro/api/google-gemini-chat)
-- 🔄 [Rerank 模型](https://docs.newapi.pro/zh/docs/api/ai-model/rerank/create-rerank)（Cohere、Jina）
+- 🔄 [Rerank 模型](https://ownapi.dev)（Cohere、Jina）
 
 **智能路由：**
 - ⚖️ 渠道加权随机
@@ -254,17 +258,17 @@ docker run --name new-api -d --restart always \
 
 ## 🤖 模型支持
 
-> 详情请参考 [接口文档 - 中继接口](https://docs.newapi.pro/zh/docs/api)
+> 详情请参考 [接口文档 - 中继接口](https://ownapi.dev)
 
 | 模型类型 | 说明 | 文档 |
 |---------|------|------|
-| 🤖 OpenAI-Compatible | OpenAI 兼容模型 | [文档](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/createchatcompletion) |
-| 🤖 OpenAI Responses | OpenAI Responses 格式 | [文档](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/createresponse) |
+| 🤖 OpenAI-Compatible | OpenAI 兼容模型 | [文档](https://ownapi.dev) |
+| 🤖 OpenAI Responses | OpenAI Responses 格式 | [文档](https://ownapi.dev) |
 | 🎨 Midjourney-Proxy | [Midjourney-Proxy(Plus)](https://github.com/novicezk/midjourney-proxy) | [文档](https://doc.newapi.pro/api/midjourney-proxy-image) |
 | 🎵 Suno-API | [Suno API](https://github.com/Suno-API/Suno-API) | [文档](https://doc.newapi.pro/api/suno-music) |
-| 🔄 Rerank | Cohere、Jina | [文档](https://docs.newapi.pro/zh/docs/api/ai-model/rerank/create-rerank) |
-| 💬 Claude | Messages 格式 | [文档](https://docs.newapi.pro/zh/docs/api/ai-model/chat/createmessage) |
-| 🌐 Gemini | Google Gemini 格式 | [文档](https://docs.newapi.pro/zh/docs/api/ai-model/chat/gemini/geminirelayv1beta) |
+| 🔄 Rerank | Cohere、Jina | [文档](https://ownapi.dev) |
+| 💬 Claude | Messages 格式 | [文档](https://ownapi.dev) |
+| 🌐 Gemini | Google Gemini 格式 | [文档](https://ownapi.dev) |
 | 🔧 Dify | ChatFlow 模式 | - |
 | 🎯 自定义 | 支持完整调用地址 | - |
 
@@ -273,16 +277,16 @@ docker run --name new-api -d --restart always \
 <details>
 <summary>查看完整接口列表</summary>
 
-- [聊天接口 (Chat Completions)](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/createchatcompletion)
-- [响应接口 (Responses)](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/createresponse)
-- [图像接口 (Image)](https://docs.newapi.pro/zh/docs/api/ai-model/images/openai/post-v1-images-generations)
-- [音频接口 (Audio)](https://docs.newapi.pro/zh/docs/api/ai-model/audio/openai/create-transcription)
-- [视频接口 (Video)](https://docs.newapi.pro/zh/docs/api/ai-model/audio/openai/createspeech)
-- [嵌入接口 (Embeddings)](https://docs.newapi.pro/zh/docs/api/ai-model/embeddings/createembedding)
-- [重排序接口 (Rerank)](https://docs.newapi.pro/zh/docs/api/ai-model/rerank/creatererank)
-- [实时对话 (Realtime)](https://docs.newapi.pro/zh/docs/api/ai-model/realtime/createrealtimesession)
-- [Claude 聊天](https://docs.newapi.pro/zh/docs/api/ai-model/chat/createmessage)
-- [Google Gemini 聊天](https://docs.newapi.pro/zh/docs/api/ai-model/chat/gemini/geminirelayv1beta)
+- [聊天接口 (Chat Completions)](https://ownapi.dev)
+- [响应接口 (Responses)](https://ownapi.dev)
+- [图像接口 (Image)](https://ownapi.dev)
+- [音频接口 (Audio)](https://ownapi.dev)
+- [视频接口 (Video)](https://ownapi.dev)
+- [嵌入接口 (Embeddings)](https://ownapi.dev)
+- [重排序接口 (Rerank)](https://ownapi.dev)
+- [实时对话 (Realtime)](https://ownapi.dev)
+- [Claude 聊天](https://ownapi.dev)
+- [Google Gemini 聊天](https://ownapi.dev)
 
 </details>
 
@@ -325,7 +329,7 @@ docker run --name new-api -d --restart always \
 | `PYROSCOPE_BLOCK_RATE` | Pyroscope block 采样率                               | `5` |
 | `HOSTNAME` | Pyroscope 标签里的主机名                                          | `new-api` |
 
-📖 **完整配置：** [环境变量文档](https://docs.newapi.pro/zh/docs/installation/config-maintenance/environment-variables)
+📖 **完整配置：** [环境变量文档](https://ownapi.dev)
 
 </details>
 
@@ -427,10 +431,10 @@ docker run --name new-api -d --restart always \
 
 | 资源 | 链接 |
 |------|------|
-| 📘 常见问题 | [FAQ](https://docs.newapi.pro/zh/docs/support/faq) |
-| 💬 社区交流 | [交流渠道](https://docs.newapi.pro/zh/docs/support/community-interaction) |
-| 🐛 反馈问题 | [问题反馈](https://docs.newapi.pro/zh/docs/support/feedback-issues) |
-| 📚 完整文档 | [官方文档](https://docs.newapi.pro/zh/docs) |
+| 📘 常见问题 | [FAQ](https://ownapi.dev) |
+| 💬 社区交流 | [交流渠道](https://ownapi.dev) |
+| 🐛 反馈问题 | [问题反馈](https://ownapi.dev) |
+| 📚 完整文档 | [官方文档](https://ownapi.dev) |
 
 ### 🤝 贡献指南
 
@@ -469,7 +473,7 @@ docker run --name new-api -d --restart always \
 
 如果这个项目对你有帮助，欢迎给我们一个 ⭐️ Star！
 
-**[官方文档](https://docs.newapi.pro/zh/docs)** • **[问题反馈](https://github.com/Calcium-Ion/new-api/issues)** • **[最新发布](https://github.com/Calcium-Ion/new-api/releases)**
+**[官方文档](https://ownapi.dev)** • **[问题反馈](https://github.com/Calcium-Ion/new-api/issues)** • **[最新发布](https://github.com/Calcium-Ion/new-api/releases)**
 
 <sub>Built with ❤️ by QuantumNous</sub>
 
