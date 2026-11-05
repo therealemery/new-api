@@ -172,14 +172,13 @@ export function About() {
 
   if (contentIsHtml) {
     return (
-      <PublicLayout>
-        <div className='mx-auto max-w-6xl px-4 py-8'>
-          <RichContent
-            mode='html'
-            content={rawContent}
-            className='prose-neutral dark:prose-invert max-w-none'
-          />
-        </div>
+      <PublicLayout showMainContainer={false}>
+        <RichContent
+          mode='html'
+          htmlVariant='isolated'
+          content={rawContent}
+          className='prose-neutral dark:prose-invert max-w-none'
+        />
       </PublicLayout>
     )
   }
