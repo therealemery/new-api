@@ -51,8 +51,14 @@ export function Hero(props: HeroProps) {
   const { status } = useStatus()
   const docsUrl =
     (status?.docs_link as string | undefined) || 'https://ownapi.dev'
+  // ponytail: first API info entry wins; add a picker if multiple entries matter
+  const apiInfo = status?.api_info_enabled
+    ? (status?.api_info as { url?: string }[] | undefined)
+    : undefined
   const baseUrl =
-    (status?.server_address as string | undefined) || window.location.origin
+    apiInfo?.[0]?.url ||
+    (status?.server_address as string | undefined) ||
+    window.location.origin
 
   const renderDocsButton = () => {
     const isExternal = docsUrl.startsWith('http')
