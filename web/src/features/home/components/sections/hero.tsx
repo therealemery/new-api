@@ -21,6 +21,7 @@ import { Link } from '@tanstack/react-router'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
+import { CopyButton } from '@/components/copy-button'
 import { Button } from '@/components/ui/button'
 import { useStatus } from '@/hooks/use-status'
 
@@ -50,6 +51,8 @@ export function Hero(props: HeroProps) {
   const { status } = useStatus()
   const docsUrl =
     (status?.docs_link as string | undefined) || 'https://ownapi.dev'
+  const baseUrl =
+    (status?.server_address as string | undefined) || window.location.origin
 
   const renderDocsButton = () => {
     const isExternal = docsUrl.startsWith('http')
@@ -169,6 +172,19 @@ export function Hero(props: HeroProps) {
             )}
           </div>
 
+          <div
+            className='landing-animate-fade-up border-border/40 bg-muted/15 mt-6 flex w-full max-w-xl items-center gap-3 rounded-lg border py-1.5 pr-1.5 pl-4 opacity-0 backdrop-blur-xs'
+            style={{ animationDelay: '210ms' }}
+          >
+            <span className='text-muted-foreground/60 shrink-0 text-xs'>
+              {t('API Base URL')}
+            </span>
+            <code className='text-foreground/90 min-w-0 flex-1 truncate font-mono text-sm'>
+              {baseUrl}
+            </code>
+            <CopyButton value={baseUrl} size='sm' />
+          </div>
+
           {/* Supported Apps (参考图二样式，进行卡片化和信息扩充设计，增加视觉高度) */}
           <div
             className='landing-animate-fade-up mt-10 w-full max-w-xl opacity-0'
@@ -180,7 +196,7 @@ export function Hero(props: HeroProps) {
               </span>
               <p className='text-muted-foreground/60 text-xs leading-relaxed'>
                 {t(
-                  'Supports one-click configuration and perfectly adapts to NewAPI multi-protocol configuration.'
+                  'Supports one-click configuration and perfectly adapts to OwnAPI multi-protocol configuration.'
                 )}
               </p>
             </div>
